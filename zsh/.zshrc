@@ -124,6 +124,7 @@ alias cht='curl cht.sh'
 alias ll='ls -la'
 alias la='ls -A'
 alias l='ls'
+alias brew="termux-chroot $PWD/bin/brew" 
 
 bindkey -v
 alias chcolor='/data/data/com.termux/files/home/.termux/colors.sh'

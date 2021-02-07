@@ -72,6 +72,7 @@ Plug 'stsewd/fzf-checkout.vim'
 " Colorscheme
 Plug 'morhetz/gruvbox'
 Plug 'rigellute/shades-of-purple.vim'
+Plug 'sainnhe/sonokai'
 " Plug 'joshdick/onedark.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'bluz71/vim-nightfly-guicolors'
@@ -96,7 +97,7 @@ Plug 'rstacruz/sparkup'
 Plug 'vimwiki/vimwiki'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+" Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'mbbill/undotree'
 Plug 'leafgarland/typescript-vim'
 Plug 'ThePrimeagen/vim-be-good'
@@ -202,6 +203,9 @@ endif
 
 "colorscheme onedark
 
+" sonokai
+let g:sonokai_style = 'andromeda'
+colorscheme sonokai
 "let g:onedark_terminal_italics = 1
 
 "let g:airline_theme='onedark'
@@ -294,9 +298,9 @@ let g:AutoPairsShortcutBackInsert = '<M-b>'
  "endif
 
 " Embark Theme 
-colorscheme embark
-let g:airline_theme = 'embark'
-let g:embark_terminal_italics = 1
+" colorscheme embark
+" let g:airline_theme = 'embark'
+" let g:embark_terminal_italics = 1
 
 
 
@@ -578,13 +582,13 @@ nnoremap <leader>vca :lua vim.lsp.buf.code_action()<CR>
 
 
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-lua require'nvim_lsp'.tsserver.setup{ on_attach=require'completion'.on_attach }
-lua require'nvim_lsp'.clangd.setup{ on_attach=require'completion'.on_attach }
-lua require'nvim_lsp'.gopls.setup{ on_attach=require'completion'.on_attach }
-" lua require'nvim_lsp'.rust_analyzer.setup{ on_attach=require'completion'.on_attach }
-lua require'nvim_lsp'.rls.setup{ on_attach=require'completion'.on_attach }
+lua require'lspconfig'.tsserver.setup{ on_attach=require'completion'.on_attach }
+lua require'lspconfig'.clangd.setup{ on_attach=require'completion'.on_attach }
+lua require'lspconfig'.gopls.setup{ on_attach=require'completion'.on_attach }
+" lua require'lspconfig'.rust_analyzer.setup{ on_attach=require'completion'.on_attach }
+lua require'lspconfig'.rls.setup{ on_attach=require'completion'.on_attach }
 
-" nvim_lsp#setup("bashls", {config})
+" lspconfig#setup("bashls", {config})
 "
 "   Default Values:
 "     cmd = { "bash-language-server", "start" }
