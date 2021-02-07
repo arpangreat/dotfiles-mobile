@@ -71,6 +71,9 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
 Plug 'raimondi/delimitmate'
 Plug 'stsewd/fzf-checkout.vim'
+Plug 'unblevable/quick-scope'
+Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
 " Colorscheme
 Plug 'morhetz/gruvbox'
 Plug 'rigellute/shades-of-purple.vim'
@@ -135,6 +138,12 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'default'
+
+" QuickScope
+let g:qs_highlight_on_keys =  ['f','F','t','T']
+
+highlight QuickScopePrimary guifg=#00C7DF gui=underline ctermfg=155 cterm=underline
+highlight QuickScopeSecondary guifg=#eF5F70 gui=underline ctermfg=81 cterm=underline
 
 "gruvbox
 " set background=dark
