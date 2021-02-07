@@ -65,6 +65,7 @@ Plug 'tpope/vim-dispatch'
 "Plug "ThePrimeagen/vim-apm"
 Plug 'airblade/vim-gitgutter'
 Plug 'xuyuanp/nerdtree-git-plugin'
+Plug 'liuchengxu/vim-which-key'
 "Plug 'itchyny/lightline.vim'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
@@ -165,8 +166,15 @@ let g:airline#extensions#tabline#formatter = 'default'
 "
 
 
+" Vim Which Key
+" nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 
-
+" let g:which_key_map['w'] = {
+"       \ 'name' : '+windows' ,
+"       \ 'd' : ['<C-W>c'     , 'delete-window'] ,
+"       \ '-' : ['<C-W>s'     , 'split-window-below'] ,
+"       \ '|' : ['<C-W>v'     , 'split-window-right'] ,
+"       \}
 
 " NERDTree Configs
 
@@ -206,6 +214,7 @@ endif
 
 " sonokai
 let g:sonokai_style = 'andromeda'
+let g:airline_theme = 'sonokai'
 colorscheme sonokai
 "let g:onedark_terminal_italics = 1
 
@@ -492,6 +501,8 @@ let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
 
 let mapleader = " "
 
+
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
