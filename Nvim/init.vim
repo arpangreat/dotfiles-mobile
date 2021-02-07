@@ -28,6 +28,7 @@ set undofile
 set updatetime=100
 set nowrap
 set colorcolumn=80
+set signcolumn=yes
 highlight ColorColumn ctermbg=0 guibg=lightgrey                                                    
 
 set scrolloff=8
@@ -41,7 +42,7 @@ set t_Co=256
 set termguicolors
 set encoding=utf-8
 set ttimeoutlen=50
-
+highlight Normal guibg=none
 
 call plug#begin('~/.vim/plugged')
 
