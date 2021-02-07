@@ -74,6 +74,7 @@ Plug 'stsewd/fzf-checkout.vim'
 Plug 'unblevable/quick-scope'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
+Plug 'mhinz/vim-startify'
 " Colorscheme
 Plug 'morhetz/gruvbox'
 Plug 'rigellute/shades-of-purple.vim'
