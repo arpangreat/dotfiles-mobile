@@ -1,14 +1,21 @@
-ZSH_THEME="agnoster"
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export ZSH="/data/data/com.termux/files/home/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -68,7 +75,18 @@ export ZSH=$HOME/.oh-my-zsh
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+    git
+    zsh-completions
+    zsh-autosuggestions  
+    zsh-abbr
+    zsh-syntax-highlighting  
+    z
+
+)
+
+
+autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 
@@ -80,11 +98,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+ if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='nvim'
+ else
+   export EDITOR='nvim'
+ fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -97,6 +115,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+# Custom aliases
 alias e='emacs'
 alias v='vim'
 alias nv='nvim'
@@ -120,19 +139,23 @@ alias gp='git push -u origin master'
 alias arc='vim ~/.config/alacritty/alacritty.yml'
 alias zrc='nvim ~/.zshrc'
 alias na='~/My-First-Plugin/./nvim.appimage'
-alias cht='curl cht.sh'
 alias ll='ls -la'
 alias la='ls -A'
 alias l='ls'
-alias brew="termux-chroot $PWD/bin/brew" 
 
 bindkey -v
-alias chcolor='/data/data/com.termux/files/home/.termux/colors.sh'
-alias chfont='/data/data/com.termux/files/home/.termux/fonts.sh'
-source /data/data/com.termux/files/home/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-export PATH='/data/data/com.termux/files/home/.cargo/bin':$PATH
-export EDITOR='nvim'
-
-neofetch
 eval "$(starship init zsh)"
+
+bash ~/.config/base-16/scripts/base16-rebecca.sh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# base16
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
+
+fortune | cowsay | lolcat

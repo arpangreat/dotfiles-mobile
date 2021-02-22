@@ -75,6 +75,7 @@ Plug 'unblevable/quick-scope'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'mhinz/vim-startify'
+Plug 'ap/vim-css-color'
 " Colorscheme
 Plug 'morhetz/gruvbox'
 Plug 'rigellute/shades-of-purple.vim'
